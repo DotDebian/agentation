@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    "package": {
+      "release-type": "node",
+      "package-name": "agentation",
+      "component": "agentation"
+    },
+    "mcp": {
+      "release-type": "node",
+      "package-name": "agentation-mcp",
+      "component": "agentation-mcp"
+    },
+    "extension": {
+      "release-type": "node",
+      "package-name": "agentation-extension",
+      "component": "agentation-extension"
+    }
+  },
+  "separate-pull-requests": true
+}
