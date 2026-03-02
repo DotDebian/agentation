@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Agentation",
   "version": "1.0.0",
-  "description": "Visual feedback for AI coding agents. Annotate any webpage.",
+  "description": "Visual feedback for AI coding agents — annotate any webpage, draw, and send structured output to your agent.",
   "permissions": [
     "storage",
     "activeTab"
