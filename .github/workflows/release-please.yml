@@ -45,18 +45,7 @@ jobs:
       - name: Create extension zip
         run: cd extension/dist && zip -r ../../agentation-extension-${{ needs.release-please.outputs['extension--version'] }}.zip .
 
-      - name: Build CRX
-        run: |
-          echo "${{ secrets.CRX_KEY }}" | base64 -d > key.pem
-          npx -y crx3 extension/dist -o agentation-extension-${{ needs.release-please.outputs['extension--version'] }}.crx -p key.pem
-          rm key.pem
-
-      - name: Upload artifacts to GitHub Release
+      - name: Upload extension zip to GitHub Release
+        run: gh release upload ${{ needs.release-please.outputs['extension--tag_name'] }} agentation-extension-${{ needs.release-please.outputs['extension--version'] }}.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          VERSION=${{ needs.release-please.outputs['extension--version'] }}
-          TAG=${{ needs.release-please.outputs['extension--tag_name'] }}
-          gh release upload "$TAG" \
-            "agentation-extension-${VERSION}.zip" \
-            "agentation-extension-${VERSION}.crx"
